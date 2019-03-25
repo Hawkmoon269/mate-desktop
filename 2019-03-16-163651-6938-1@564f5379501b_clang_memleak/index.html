@@ -1,0 +1,205 @@
+<html>
+<head>
+<title>rootdir - scan-build results</title>
+<link type="text/css" rel="stylesheet" href="scanview.css"/>
+<script src="sorttable.js"></script>
+<script language='javascript' type="text/javascript">
+function SetDisplay(RowClass, DisplayVal)
+{
+  var Rows = document.getElementsByTagName("tr");
+  for ( var i = 0 ; i < Rows.length; ++i ) {
+    if (Rows[i].className == RowClass) {
+      Rows[i].style.display = DisplayVal;
+    }
+  }
+}
+
+function CopyCheckedStateToCheckButtons(SummaryCheckButton) {
+  var Inputs = document.getElementsByTagName("input");
+  for ( var i = 0 ; i < Inputs.length; ++i ) {
+    if (Inputs[i].type == "checkbox") {
+      if(Inputs[i] != SummaryCheckButton) {
+        Inputs[i].checked = SummaryCheckButton.checked;
+        Inputs[i].onclick();
+      }
+    }
+  }
+}
+
+function returnObjById( id ) {
+    if (document.getElementById)
+        var returnVar = document.getElementById(id);
+    else if (document.all)
+        var returnVar = document.all[id];
+    else if (document.layers)
+        var returnVar = document.layers[id];
+    return returnVar;
+}
+
+var NumUnchecked = 0;
+
+function ToggleDisplay(CheckButton, ClassName) {
+  if (CheckButton.checked) {
+    SetDisplay(ClassName, "");
+    if (--NumUnchecked == 0) {
+      returnObjById("AllBugsCheck").checked = true;
+    }
+  }
+  else {
+    SetDisplay(ClassName, "none");
+    NumUnchecked++;
+    returnObjById("AllBugsCheck").checked = false;
+  }
+}
+</script>
+<!-- SUMMARYENDHEAD -->
+</head>
+<body>
+<h1>rootdir - scan-build results</h1>
+
+<table>
+<tr><th>User:</th><td>root@ef554236473d</td></tr>
+<tr><th>Working Directory:</th><td>/rootdir</td></tr>
+<tr><th>Command Line:</th><td>make -j 2</td></tr>
+<tr><th>Clang Version:</th><td>clang version 7.0.1 (Fedora 7.0.1-4.fc29)
+</td></tr>
+<tr><th>Date:</th><td>Sat Mar 16 16:36:51 2019</td></tr>
+</table>
+<h2>Bug Summary</h2><table>
+<thead><tr><td>Bug Type</td><td>Quantity</td><td class="sorttable_nosort">Display?</td></tr></thead>
+<tr style="font-weight:bold"><td class="SUMM_DESC">All Bugs</td><td class="Q">35</td><td><center><input type="checkbox" id="AllBugsCheck" onClick="CopyCheckedStateToCheckButtons(this);" checked/></center></td></tr>
+<tr><th>API</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Argument with 'nonnull' attribute passed null</td><td class="Q">2</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_api_argument_with_nonnull_attribute_passed_null');" checked/></center></td></tr>
+<tr><th>Logic error</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Dereference of null pointer</td><td class="Q">2</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_dereference_of_null_pointer');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Division by zero</td><td class="Q">2</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_division_by_zero');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Garbage return value</td><td class="Q">2</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_garbage_return_value');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Out-of-bound access</td><td class="Q">18</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_out-of-bound_access');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Uninitialized argument value</td><td class="Q">4</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_uninitialized_argument_value');" checked/></center></td></tr>
+<tr><th>Security</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Potential insecure memory buffer bounds restriction in call 'strcat'</td><td class="Q">1</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_security_potential_insecure_memory_buffer_bounds_restriction_in_call_strcat_');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Potential insecure memory buffer bounds restriction in call 'strcpy'</td><td class="Q">4</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_security_potential_insecure_memory_buffer_bounds_restriction_in_call_strcpy_');" checked/></center></td></tr>
+</table>
+<h2>Reports</h2>
+
+<table class="sortable" style="table-layout:automatic">
+<thead><tr>
+  <td>Bug Group</td>
+  <td class="sorttable_sorted">Bug Type<span id="sorttable_sortfwdind">&nbsp;&#x25BE;</span></td>
+  <td>File</td>
+  <td>Function/Method</td>
+  <td class="Q">Line</td>
+  <td class="Q">Path Length</td>
+  <td class="sorttable_nosort"></td>
+  <!-- REPORTBUGCOL -->
+</tr></thead>
+<tbody>
+<tr class="bt_api_argument_with_nonnull_attribute_passed_null"><td class="DESC">API</td><td class="DESC">Argument with 'nonnull' attribute passed null</td><td>mate-desktop-thumbnail.c</td><td class="DESC">mate_desktop_thumbnail_factory_has_valid_failed_thumbnail</td><td class="Q">933</td><td class="Q">10</td><td><a href="report-bf9340.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-bf9340.html" -->
+</tr>
+<tr class="bt_api_argument_with_nonnull_attribute_passed_null"><td class="DESC">API</td><td class="DESC">Argument with 'nonnull' attribute passed null</td><td>mate-desktop-thumbnail.c</td><td class="DESC">mate_desktop_thumbnail_factory_has_valid_failed_thumbnail</td><td class="Q">933</td><td class="Q">10</td><td><a href="report-27e851.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-27e851.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>mate-bg.c</td><td class="DESC">find_best_size</td><td class="Q">2318</td><td class="Q">30</td><td><a href="report-e9fbe6.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e9fbe6.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>mate-bg.c</td><td class="DESC">find_best_size</td><td class="Q">2318</td><td class="Q">30</td><td><a href="report-2a8779.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-2a8779.html" -->
+</tr>
+<tr class="bt_logic_error_division_by_zero"><td class="DESC">Logic error</td><td class="DESC">Division by zero</td><td>mate-thumbnail-pixbuf-utils.c</td><td class="DESC">mate_desktop_thumbnail_scale_down_pixbuf</td><td class="Q">160</td><td class="Q">18</td><td><a href="report-3af2b8.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-3af2b8.html" -->
+</tr>
+<tr class="bt_logic_error_division_by_zero"><td class="DESC">Logic error</td><td class="DESC">Division by zero</td><td>mate-thumbnail-pixbuf-utils.c</td><td class="DESC">mate_desktop_thumbnail_scale_down_pixbuf</td><td class="Q">160</td><td class="Q">18</td><td><a href="report-91bdb3.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-91bdb3.html" -->
+</tr>
+<tr class="bt_logic_error_garbage_return_value"><td class="DESC">Logic error</td><td class="DESC">Garbage return value</td><td>mate-desktop-item.c</td><td class="DESC">ditem_execute</td><td class="Q">2027</td><td class="Q">37</td><td><a href="report-e61d61.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e61d61.html" -->
+</tr>
+<tr class="bt_logic_error_garbage_return_value"><td class="DESC">Logic error</td><td class="DESC">Garbage return value</td><td>mate-desktop-item.c</td><td class="DESC">ditem_execute</td><td class="Q">2027</td><td class="Q">37</td><td><a href="report-686876.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-686876.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>mate-desktop-item.c</td><td class="DESC">escape_string_and_dup</td><td class="Q">3118</td><td class="Q">24</td><td><a href="report-846ec5.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-846ec5.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>mate-desktop-item.c</td><td class="DESC">escape_string_and_dup</td><td class="Q">3129</td><td class="Q">30</td><td><a href="report-a3eaff.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a3eaff.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>mate-desktop-item.c</td><td class="DESC">escape_string_and_dup</td><td class="Q">3125</td><td class="Q">30</td><td><a href="report-586306.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-586306.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>mate-desktop-item.c</td><td class="DESC">escape_string_and_dup</td><td class="Q">3133</td><td class="Q">21</td><td><a href="report-cb3efb.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-cb3efb.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>mate-desktop-item.c</td><td class="DESC">escape_string_and_dup</td><td class="Q">3130</td><td class="Q">24</td><td><a href="report-d5b584.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d5b584.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>mate-desktop-item.c</td><td class="DESC">escape_string_and_dup</td><td class="Q">3125</td><td class="Q">30</td><td><a href="report-5ac947.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5ac947.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>mate-desktop-item.c</td><td class="DESC">escape_string_and_dup</td><td class="Q">3126</td><td class="Q">24</td><td><a href="report-7fdc03.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7fdc03.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>mate-desktop-item.c</td><td class="DESC">escape_string_and_dup</td><td class="Q">3122</td><td class="Q">24</td><td><a href="report-8fcf83.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-8fcf83.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>mate-desktop-item.c</td><td class="DESC">escape_string_and_dup</td><td class="Q">3121</td><td class="Q">30</td><td><a href="report-f862cc.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f862cc.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>mate-desktop-item.c</td><td class="DESC">escape_string_and_dup</td><td class="Q">3117</td><td class="Q">30</td><td><a href="report-a65151.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a65151.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>mate-desktop-item.c</td><td class="DESC">escape_string_and_dup</td><td class="Q">3129</td><td class="Q">30</td><td><a href="report-d97473.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d97473.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>mate-desktop-item.c</td><td class="DESC">escape_string_and_dup</td><td class="Q">3130</td><td class="Q">24</td><td><a href="report-96b088.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-96b088.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>mate-desktop-item.c</td><td class="DESC">escape_string_and_dup</td><td class="Q">3133</td><td class="Q">21</td><td><a href="report-9046fc.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-9046fc.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>mate-desktop-item.c</td><td class="DESC">escape_string_and_dup</td><td class="Q">3117</td><td class="Q">30</td><td><a href="report-3b4264.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-3b4264.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>mate-desktop-item.c</td><td class="DESC">escape_string_and_dup</td><td class="Q">3121</td><td class="Q">30</td><td><a href="report-6c8294.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-6c8294.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>mate-desktop-item.c</td><td class="DESC">escape_string_and_dup</td><td class="Q">3126</td><td class="Q">24</td><td><a href="report-131557.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-131557.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>mate-desktop-item.c</td><td class="DESC">escape_string_and_dup</td><td class="Q">3118</td><td class="Q">24</td><td><a href="report-d70c13.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d70c13.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>mate-desktop-item.c</td><td class="DESC">escape_string_and_dup</td><td class="Q">3122</td><td class="Q">24</td><td><a href="report-3b2489.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-3b2489.html" -->
+</tr>
+<tr class="bt_security_potential_insecure_memory_buffer_bounds_restriction_in_call_strcat_"><td class="DESC">Security</td><td class="DESC">Potential insecure memory buffer bounds restriction in call 'strcat'</td><td>test-ditem.c</td><td class="DESC">test_ditem</td><td class="Q">94</td><td class="Q">1</td><td><a href="report-77b1f2.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-77b1f2.html" -->
+</tr>
+<tr class="bt_security_potential_insecure_memory_buffer_bounds_restriction_in_call_strcpy_"><td class="DESC">Security</td><td class="DESC">Potential insecure memory buffer bounds restriction in call 'strcpy'</td><td>mate-desktop-item.c</td><td class="DESC">mate_desktop_item_launch_on_screen_with_env</td><td class="Q">2118</td><td class="Q">1</td><td><a href="report-234aae.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-234aae.html" -->
+</tr>
+<tr class="bt_security_potential_insecure_memory_buffer_bounds_restriction_in_call_strcpy_"><td class="DESC">Security</td><td class="DESC">Potential insecure memory buffer bounds restriction in call 'strcpy'</td><td>mate-desktop-item.c</td><td class="DESC">mate_desktop_item_launch_on_screen_with_env</td><td class="Q">2118</td><td class="Q">1</td><td><a href="report-03e8fe.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-03e8fe.html" -->
+</tr>
+<tr class="bt_security_potential_insecure_memory_buffer_bounds_restriction_in_call_strcpy_"><td class="DESC">Security</td><td class="DESC">Potential insecure memory buffer bounds restriction in call 'strcpy'</td><td>mate-rr-config.c</td><td class="DESC">mate_rr_config_load_current</td><td class="Q">549</td><td class="Q">1</td><td><a href="report-27003c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-27003c.html" -->
+</tr>
+<tr class="bt_security_potential_insecure_memory_buffer_bounds_restriction_in_call_strcpy_"><td class="DESC">Security</td><td class="DESC">Potential insecure memory buffer bounds restriction in call 'strcpy'</td><td>mate-rr-config.c</td><td class="DESC">mate_rr_config_load_current</td><td class="Q">549</td><td class="Q">1</td><td><a href="report-c0968a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c0968a.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>mate-desktop-thumbnail.c</td><td class="DESC">_gdk_pixbuf_new_from_uri_at_scale</td><td class="Q">455</td><td class="Q">24</td><td><a href="report-f86f2c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f86f2c.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>mate-bg.c</td><td class="DESC">create_img_thumbnail</td><td class="Q">2263</td><td class="Q">25</td><td><a href="report-76e7a1.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-76e7a1.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>mate-desktop-thumbnail.c</td><td class="DESC">_gdk_pixbuf_new_from_uri_at_scale</td><td class="Q">455</td><td class="Q">24</td><td><a href="report-5159b2.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5159b2.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>mate-bg.c</td><td class="DESC">create_img_thumbnail</td><td class="Q">2263</td><td class="Q">25</td><td><a href="report-32c5ad.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-32c5ad.html" -->
+</tr>
+</tbody>
+</table>
+
+</body></html>

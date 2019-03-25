@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" href="https://github.com/mate-desktop/mate-desktop/raw/master/icons/hicolor_apps_16x16_mate.png" />
+  <title>mate-desktop Code Analyzer results</title>
+</head>
+<body>
+<h1>
+  <a href="https://github.com/mate-desktop">mate-desktop</a>/<a href="https://github.com/mate-desktop/mate-desktop">mate-desktop</a> Static analyzer results
+</h1>
+  <a href="https://github.com/mate-desktop/mate-desktop" title="Github"><i class="fa fa-github fa-2x"></i>GitHub</a>
+  <a href="https://travis-ci.org/mate-desktop/mate-desktop/builds/511153511" title="Travis CI"><img src="https://travis-ci.org/mate-desktop/mate-desktop.svg?branch=master" alt="Build Status" /></a>
+<hr/>
+Commit: <a href="https://github.com/mate-desktop/mate-desktop/commit/bc41274dad99d0c6700efac3dd747c282ed4f7d6">bc41274dad99d0c6700efac3dd747c282ed4f7d6</a><br/>
+Compare: <a href="https://github.com/mate-desktop/mate-desktop/compare/a4a8e89c52d8...bc41274dad99">a4a8e89c52d8...bc41274dad99</a><br/>
+Branch: <a href="https://github.com/mate-desktop/mate-desktop/tree/master">master</a><br/>
+Time: 2019-03-25 20:35:30+00:00<br/>
+Messages:<br/>
+<pre>
+mate-desktop-thumbnail: avoid 'NULL' parameter
+
+Fixes Clang static analyzer warning:
+
+mate-desktop-thumbnail.c:933:54: warning: Null pointer passed as an argument to a 'nonnull' parameter
+  g_checksum_update (checksum, (const guchar *) uri, strlen (uri));
+                                                     ^~~~~~~~~~~~
+</pre>
+<hr/>
+<ul>
+<li><a href=2019-03-25-203218-6954-1@bc41274dad99_master>2019-03-25-203218-6954-1@bc41274dad99_master</a></li>
+<li><a href=2019-03-17-011732-6936-1@bfdcf637c5aa_clang_strcat>2019-03-17-011732-6936-1@bfdcf637c5aa_clang_strcat</a></li>
+<li><a href=2019-03-16-215500-6937-1@860f85b08c54_clang_memleak>2019-03-16-215500-6937-1@860f85b08c54_clang_memleak</a></li>
+<li><a href=2019-03-16-163651-6938-1@564f5379501b_clang_memleak>2019-03-16-163651-6938-1@564f5379501b_clang_memleak</a></li>
+<li><a href=2019-03-16-112757-6936-1@182980484685_png-icons>2019-03-16-112757-6936-1@182980484685_png-icons</a></li>
+<li><a href=2019-03-16-110134-6938-1@68a64960faf0_png-icons>2019-03-16-110134-6938-1@68a64960faf0_png-icons</a></li>
+<li><a href=2019-03-15-171133-6936-1@08dc989b3945_master>2019-03-15-171133-6936-1@08dc989b3945_master</a></li>
+<li><a href=2019-03-13-074729-6936-1@3f044b1462b3_master>2019-03-13-074729-6936-1@3f044b1462b3_master</a></li>
+<li><a href=2019-03-11-074309-7011-1@4518f47bebf4_clang-analyzer>2019-03-11-074309-7011-1@4518f47bebf4_clang-analyzer</a></li>
+<li><a href=2019-03-11-063835-7011-1@a360ca4ef30f_clang-analyzer>2019-03-11-063835-7011-1@a360ca4ef30f_clang-analyzer</a></li>
+</ul>
+</body>
+</html>
